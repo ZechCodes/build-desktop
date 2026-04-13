@@ -2,6 +2,10 @@
   "name": "Build",
   "version": "0.1.0",
   "description": "Build — AgentMesh desktop client",
+  "author": {
+    "name": "Zech Zimmerman",
+    "email": "zech@getbuild.ing"
+  },
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
