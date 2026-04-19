@@ -24,14 +24,17 @@
     },
     "mac": {
       "category": "public.app-category.developer-tools",
-      "target": ["dmg", "zip"]
+      "target": ["dmg", "zip"],
+      "icon": "assets/icon.png"
     },
     "linux": {
       "target": ["AppImage", "deb"],
-      "category": "Development"
+      "category": "Development",
+      "icon": "assets/icon.png"
     },
     "win": {
-      "target": ["nsis", "zip"]
+      "target": ["nsis", "zip"],
+      "icon": "assets/icon.png"
     }
   },
   "devDependencies": {
