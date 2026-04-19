@@ -229,7 +229,7 @@ Or configure the publish target:
   "publish": {
     "provider": "github",
     "owner": "ZechCodes",
-    "repo": "build-desktop"
+    "repo": "build-app"
   }
 }
 ```

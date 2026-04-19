@@ -107,7 +107,7 @@ gpg --full-generate-key
 # Use a dedicated email like build-releases@getbuild.ing
 
 # Export public key
-gpg --armor --export build-releases@getbuild.ing > build-desktop.gpg.key
+gpg --armor --export build-releases@getbuild.ing > build-app.gpg.key
 
 # Export private key (for CI)
 gpg --armor --export-secret-keys build-releases@getbuild.ing | base64
@@ -131,21 +131,21 @@ repo/
           Packages.gz
   pool/
     main/
-      build-desktop_1.0.0_amd64.deb
-      build-desktop_1.0.0_arm64.deb
+      build-app_1.0.0_amd64.deb
+      build-app_1.0.0_arm64.deb
 ```
 
 **User installation instructions:**
 
 ```bash
 # Add the GPG key
-curl -fsSL https://repo.getbuild.ing/build-desktop.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/build-desktop.gpg
+curl -fsSL https://repo.getbuild.ing/build-app.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/build-app.gpg
 
 # Add the repository
-echo "deb [signed-by=/usr/share/keyrings/build-desktop.gpg] https://repo.getbuild.ing/apt stable main" | sudo tee /etc/apt/sources.list.d/build-desktop.list
+echo "deb [signed-by=/usr/share/keyrings/build-app.gpg] https://repo.getbuild.ing/apt stable main" | sudo tee /etc/apt/sources.list.d/build-app.list
 
 # Install
-sudo apt update && sudo apt install build-desktop
+sudo apt update && sudo apt install build-app
 ```
 
 ### Practical Take
@@ -181,12 +181,12 @@ app.whenReady().then(() => {
 If users install via APT:
 
 ```bash
-sudo apt update && sudo apt upgrade build-desktop
+sudo apt update && sudo apt upgrade build-app
 ```
 
 This is manual (or handled by the user's unattended-upgrades config). The app itself doesn't manage deb updates.
 
-**Hybrid approach:** You can still use electron-updater in deb-installed apps to notify users of updates, even if you can't auto-install (it would need root). Show a notification: "A new version is available. Run `sudo apt update && sudo apt upgrade build-desktop` to update."
+**Hybrid approach:** You can still use electron-updater in deb-installed apps to notify users of updates, even if you can't auto-install (it would need root). Show a notification: "A new version is available. Run `sudo apt update && sudo apt upgrade build-app` to update."
 
 ### Differential Updates
 

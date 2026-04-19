@@ -195,7 +195,7 @@ This is automatic — no extra config needed. Just make sure `--publish always` 
   "publish": {
     "provider": "github",
     "owner": "ZechCodes",
-    "repo": "build-desktop"
+    "repo": "build-app"
   }
 }
 ```
